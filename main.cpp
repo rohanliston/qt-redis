@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     CppRedisTest test;
 
     QtQuick2ApplicationViewer viewer;
-    viewer.setMainQmlFile(QStringLiteral("qml/redis_client/main.qml"));
+    viewer.setMainQmlFile(QStringLiteral("qml/redis_interface/main.qml"));
     viewer.showExpanded();
 
     return app.exec();
