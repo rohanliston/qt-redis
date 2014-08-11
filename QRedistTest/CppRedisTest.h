@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QTimer>
 #include <QDebug>
-#include "RedisInterface.h"
+#include "../QRedisLib/RedisInterface.h"
 
 class CppRedisTest : public QObject
 {
