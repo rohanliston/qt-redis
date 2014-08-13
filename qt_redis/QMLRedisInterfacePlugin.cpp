@@ -1,11 +1,10 @@
-#include "QRedisLib_plugin.h"
+#include "QMLRedisInterfacePlugin.h"
 #include "QMLRedisInterface.h"
+
 #include <qqml.h>
 
-void QRedisLibPlugin::registerTypes(const char *uri)
+void QMLRedisInterfacePlugin::registerTypes(const char *uri)
 {
-    // @uri MyQMLComponents.Redis
+    // @uri DSTO.Utils
     qmlRegisterType<QMLRedisInterface>(uri, 1, 0, "RedisInterface");
 }
-
-

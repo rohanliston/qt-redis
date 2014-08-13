@@ -1,3 +1,0 @@
-module MyQMLComponents.Redis
-plugin QRedisLib
-
