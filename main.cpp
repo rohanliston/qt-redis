@@ -1,5 +1,5 @@
-#include <QtGui/QGuiApplication>
-#include "qtquick2applicationviewer.h"
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
 #include "QMLRedisInterface.h"
 #include "CppRedisTest.h"
 
@@ -11,9 +11,8 @@ int main(int argc, char *argv[])
 
     CppRedisTest test;
 
-    QtQuick2ApplicationViewer viewer;
-    viewer.setMainQmlFile(QStringLiteral("qml/redis_interface/main.qml"));
-    viewer.showExpanded();
+    QQmlApplicationEngine engine;
+    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     return app.exec();
 }
