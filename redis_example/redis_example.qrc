@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/redis_interface/main.qml</file>
+        <file>qml/redis_interface/RedisContainer.qml</file>
+    </qresource>
+</RCC>

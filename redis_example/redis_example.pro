@@ -1,32 +1,43 @@
-# Add more folders to ship with the application, here
-folder_01.source = qml/redis_interface
-folder_01.target = qml
-DEPLOYMENTFOLDERS = folder_01
+QT += quick quickcontrols2
 
-# Additional import path used to resolve QML modules in Creator's code model
-QML_IMPORT_PATH =
+CONFIG += c++11
+
+# The following define makes your compiler emit warnings if you use
+# any Qt feature that has been marked deprecated (the exact warnings
+# depend on your compiler). Refer to the documentation for the
+# deprecated API to know how to port your code away from it.
+DEFINES += QT_DEPRECATED_WARNINGS
+
+# You can also make your code fail to compile if it uses deprecated APIs.
+# In order to do so, uncomment the following line.
+# You can also select to disable deprecated APIs only up to a certain version of Qt.
+#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 # The .cpp file which was generated for your project. Feel free to hack it.
-SOURCES += main.cpp
- #   CppRedisTest.cpp
+SOURCES += main.cpp \
+    CppRedisTest.cpp
 
-# Installation path
-# target.path =
+RESOURCES += \
+    redis_example.qrc
 
-# Please do not modify the following two lines. Required for deployment.
-include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
-qtcAddDeployment()
+# Additional import path used to resolve QML modules in Qt Creator's code model
+QML_IMPORT_PATH =
 
-# Makes a 'make install' do nothing for this project.
-INSTALLS =
+# Additional import path used to resolve QML modules just for Qt Quick Designer
+QML_DESIGNER_IMPORT_PATH =
 
-# --- [ PROPERTY TRANSPORT ] -----------------------------------------------------------------------------------------------
-
-unix: {
-    LIBS += -L $$(PREFIX)/lib -lQtRedis
-    INCLUDEPATH += $$(PREFIX)/include/qt_redis
-    DEPENDPATH += $$(PREFIX)/include/qt_redis
-}
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
     CppRedisTest.h
+
+# --- [ INCLUDE PROPERTY TRANSPORT ] -----------------------------------------------------------------------------------------------
+
+unix: {
+    LIBS += -L /$$(PREFIX)/lib -lQtRedis
+    INCLUDEPATH += $$(PREFIX)/include/qt_redis
+    DEPENDPATH += $$(PREFIX)/include/qt_redis
+}
