@@ -4,10 +4,49 @@
 ##Building Redis etc.
 To use this you'll need to install Redis and Webdis.
 
+###Redis
+
 Redis is the fast key-value system, while Webdis is an HTTP interface for Redis.
+
+To install Redis, download it from the redis.io site, or use
+
+'''
+brew install redis
+'''
+
+on Mac, or
+
+'''
+apt-get install redis
+'''
+
+on Linux.
+
+###Webdis
+
 Using Http makes life much easier, though is an additional level of code to understand.
 
 Building Webdis requires events.h, so you'll also need to install eventLib.
+
+Webdis can be found at:
+
+'''
+git://github.com/nicolasff/webdis.git
+'''
+
+To install eventlib you'll need to use
+
+MAC OS:
+
+'''
+brew install eventlib
+'''
+
+LINUX:
+
+'''
+apt-get install libevent-dev
+'''
 
 ##Building Qt_redis
 Open the .pro file in creator.
@@ -20,11 +59,17 @@ Build the qt_redis library, then test with redis_example.
 
 You can test by pushing values to Redis via the command line. For example:
 
+'''
 curl http://127.0.0.1:7379/SET/my:key/1.0
+'''
 (set the key "my:key" to 1.0)
 
+'''
 curl http://127.0.0.1:7379/Get/my:key
+'''
 (get the value of "my:key")
 
+'''
 curl http://127.0.0.1:7379/PUBLISH/my:published:key/1.0
+'''
 (publish the value 1.0 to key "my:published:key")

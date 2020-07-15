@@ -41,3 +41,9 @@ unix: {
     INCLUDEPATH += $$(PREFIX)/include/qt_redis
     DEPENDPATH += $$(PREFIX)/include/qt_redis
 }
+
+macx: {
+    LIBS += -L /$$(PREFIX)/lib -lQtRedis
+    INCLUDEPATH += $$(PREFIX)/include/qt_redis
+    DEPENDPATH += $$(PREFIX)/include/qt_redis
+}

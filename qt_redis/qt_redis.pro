@@ -1,5 +1,6 @@
 message("Don't forget to run MAKE INSTALL with this module.");
 message("You'll need to set the PREFIX environment variable to the path you want the libraries to be placed in.");
+message("You'll also need to add the libraries to you DYLD_LIBRARY_PATH on mac, or LD_LIBRARY_PATH on linux");
 
 QT       -= gui
 QT       += quick
