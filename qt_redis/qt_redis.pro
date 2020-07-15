@@ -1,4 +1,5 @@
 message("Don't forget to run MAKE INSTALL with this module.");
+message("You'll need to set the PREFIX environment variable to the path you want the libraries to be placed in.");
 
 QT       -= gui
 QT       += quick
